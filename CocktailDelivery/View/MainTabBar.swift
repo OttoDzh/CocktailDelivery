@@ -18,7 +18,7 @@ class MainTabBar: UITabBarController {
     func generateTabBar() {
         viewControllers = [
             generateNavVc(vc: MenuViewController(), title: "Menu", image: UIImage(systemName: "menucard")),
-            generateNavVc(vc: TrashVC(), title: "Thrash", image: UIImage(systemName: "trash")),
+            generateNavVc(vc: TrashVC(), title: "Trash", image: UIImage(systemName: "trash")),
             generateNavVc(vc: ProfileVC(), title: "Profile", image: UIImage(systemName: "person.fill"))
             ]
     }
@@ -30,7 +30,7 @@ class MainTabBar: UITabBarController {
     }
 
     private func setupViews() {
-        tabBar.backgroundColor = .darkGray
+        tabBar.backgroundColor = .lightGraySelf
         tabBar.tintColor = .systemBlue
         tabBar.unselectedItemTintColor = .lightGray
     }

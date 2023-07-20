@@ -16,7 +16,6 @@ protocol MenuPresenterInput: AnyObject {
     func presentDrinks(drinks: [Drink])
 }
 
-
 class MenuPresenter {
     weak var view : MenuPresenterInput?
     private var drinks: [Drink] = []
@@ -41,20 +40,25 @@ class MenuPresenter {
         drinks.count
     }
     
-    func getData() {
-     
+    func getData(letter:String?,activity:UIActivityIndicatorView?,tableView: UITableView?) {
         let isInternetAvailable = Reachability.isConnectedToNetwork()
-        
         guard isInternetAvailable else {
             if let drinks = UserDefaultsHelper.getAllDrinks,
                let categories = UserDefaultsHelper.getAllCategories {
                 self.drinks = drinks
                 self.categories = categories
+                print("hmm")
             }
             return
         }
-        
-            NetWorkService.getCocktails { drinks in
+        NetWorkService.getCocktails(letterOfCocktails: letter ?? "d") { drinks in
+            if self.categories.count != 0 {
+                self.categories.removeAll()
+            }
+            DispatchQueue.main.async {
+                activity?.startAnimating()
+                tableView?.isHidden = true
+            }
                 var drinks = drinks
                 print(drinks.count)
                 for i in 0..<drinks.count {
@@ -70,19 +74,18 @@ class MenuPresenter {
                 self.categories = self.categories.sorted()
                 self.view?.presentCategories(categories: self.categories)
                 drinks = drinks.sorted(by: { $0.strCategory! < $1.strCategory! })
-
                 UserDefaultsHelper.saveAllDrinks(allObjects: drinks)
                 UserDefaultsHelper.saveAllCategories(allObjects: self.categories)
                 DispatchQueue.main.async {
                     self.drinks = drinks
                     self.view?.presentDrinksCount(drinksCount: drinks.count)
                     self.view?.presentDrinks(drinks: self.drinks)
+                    activity?.stopAnimating()
+                    activity?.hidesWhenStopped = true
+                    tableView?.isHidden = false
+                   
                 }
             }
     }
-
-
-   
-    
 }
 

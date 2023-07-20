@@ -15,7 +15,7 @@ class CocktailTabCell: UITableViewCell {
     
     let cocktailImage = UIImageView()
     let cocktailName = UILabel(text: "Margarita", font: ODFonts.titleLabelFont)
-    let cocktailCategory = UILabel(text: "CategoryHere", font: ODFonts.boldTextFont)
+    let cocktailCategory = UILabel(text: "CategoryHere", font: ODFonts.avenirLightSmall)
     let cocktailInstruction = UITextView()
     let cocktailPrice = UIButton(title: "ot 345 rub.", bgColor: .white, textColor: .red, font: ODFonts.avenirRoman, cornerRadius: 12)
     
@@ -38,6 +38,7 @@ class CocktailTabCell: UITableViewCell {
         cocktailName.textColor = .black
         cocktailCategory.textColor = .black
         cocktailInstruction.textColor = .black
+        cocktailInstruction.font = ODFonts.avenirLightSmall
        
         
         addSubview(cocktailImage)

@@ -10,7 +10,6 @@ import SnapKit
 
 final class MenuViewController: UIViewController {
     
-    
     let menuView = MenuView()
     var bannersImg = [UIImage]()
     var categories: [String] = []
@@ -19,7 +18,7 @@ final class MenuViewController: UIViewController {
     var presenter: MenuPresenter?
     var drinkss: [Drink] = []
     private var prevIndex = 0
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view = menuView
@@ -31,10 +30,25 @@ final class MenuViewController: UIViewController {
         menuView.cocktailTableView.dataSource = self
         presenter = MenuPresenter(view: self)
         presenter?.getBanners()
-        presenter?.getData()
+        presenter?.getData(letter: "c",activity: menuView.activityIndicator,tableView: self.menuView.cocktailTableView)
+        addTargets()
+        let tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 500))
+        menuView.cocktailTableView.tableFooterView = tableFooterView
+    }
+    func addTargets() {
+        menuView.cocktailsFindButton.addTarget(self, action: #selector(getNewCocktails), for: .touchUpInside)
     }
     
-    
+    @objc func getNewCocktails() {
+        guard menuView.cocktailTextField.text?.count == 1 else {return}
+        presenter?.getData(letter: menuView.cocktailTextField.text,activity: menuView.activityIndicator,tableView: self.menuView.cocktailTableView)
+        DispatchQueue.main.async {
+            self.menuView.cocktailTextField.resignFirstResponder()
+            self.menuView.categoryCollectionView.reloadData()
+            self.menuView.cocktailTableView.reloadData()
+        }
+        self.menuView.cocktailTextField.text = ""
+    }
 }
 
 extension MenuViewController: MenuPresenterInput {
@@ -59,7 +73,6 @@ extension MenuViewController: MenuPresenterInput {
             self.menuView.categoryCollectionView.reloadData()
         }
     }
-    
     func presentBanners(newArray: [UIImage]) {
         self.bannersImg = newArray
     }
@@ -67,14 +80,12 @@ extension MenuViewController: MenuPresenterInput {
 }
 
 extension MenuViewController: UICollectionViewDelegate,UICollectionViewDataSource {
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView === menuView.bannerCollectionView {
             return bannersImg.count
         } else {
             return self.categories.count
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -86,29 +97,24 @@ extension MenuViewController: UICollectionViewDelegate,UICollectionViewDataSourc
         } else {
             let cell2 = menuView.categoryCollectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.reuseId, for: indexPath) as! CategoryCell
             cell2.layer.cornerRadius = 15
-//            let cell = menuView.categoryCollectionView.cellForItem(at: IndexPath(row: 1, section: 0))
-//            cell?.backgroundColor = .lightGray
+            cell2.backgroundColor = .clear
+            cell2.categoryName.textColor = UIColor.lightGray
             cell2.categoryName.text = self.categories[indexPath.row]
             return cell2
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         collectionView.deselectItem(at: indexPath, animated: true)
-        
         if collectionView === menuView.categoryCollectionView {
             let category = self.categories[indexPath.row]
             let index = self.drinkss.firstIndex {
                 $0.strCategory == category }
-                menuView.cocktailTableView.scrollToRow(
+                self.menuView.cocktailTableView.scrollToRow(
                     at: IndexPath(row: index!, section: 0),
                     at: .top,
-                    animated: false)
+                    animated: true)
             }
-            
-           
-            
         }
         }
     
@@ -117,14 +123,15 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  self.drinksCount
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell =  menuView.cocktailTableView.dequeueReusableCell(withIdentifier: CocktailTabCell.reuseID, for: indexPath) as! CocktailTabCell
         cell.backgroundColor = .white
+        let bgColorView = UIView()
+        bgColorView.backgroundColor = UIColor.clear
+        cell.selectedBackgroundView = bgColorView
         let drink = presenter?.presentDrinkModel(at: indexPath.row)
         cell.configure(withDrink: drink!)
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -141,11 +148,13 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
             let category = drink?.strCategory
             let indexOfCategory = self.categories.firstIndex {
                 $0 == category }
+            
             menuView.categoryCollectionView.scrollToItem(
                 at: IndexPath(row: indexOfCategory!, section: 0),
                 at: [.centeredVertically, .centeredHorizontally],
                 animated: false
             )
+            
             if let cell = menuView.categoryCollectionView.cellForItem(
                 at: IndexPath(row: prevIndex, section: 0)
                 
@@ -173,7 +182,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
                 make.height.equalTo(32)
             }
             
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0.5, animations: {
                 self.menuView.bannerCollectionView.isHidden = true
                 self.view.layoutIfNeeded()
             })
@@ -186,7 +195,7 @@ extension MenuViewController: UITableViewDelegate, UITableViewDataSource {
                 make.height.equalTo(32)
             }
             
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 self.menuView.bannerCollectionView.isHidden = false
                 self.view.layoutIfNeeded()
             })

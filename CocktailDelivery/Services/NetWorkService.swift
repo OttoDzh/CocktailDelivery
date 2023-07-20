@@ -8,9 +8,8 @@
 import Foundation
 class NetWorkService {
     
-    static func getCocktails(completion: @escaping(_ drink: [Drink]) -> Void) {
-        let url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=d"
-        
+    static func getCocktails(letterOfCocktails:String,completion: @escaping(_ drink: [Drink]) -> Void) {
+        let url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=\(letterOfCocktails)"
         guard let url = URL(string: url) else {
             return
         }
@@ -32,6 +31,5 @@ class NetWorkService {
                 print(error)
             }
         }.resume()
-        
     }
 }

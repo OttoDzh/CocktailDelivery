@@ -13,7 +13,6 @@ class BannerCell: UICollectionViewCell {
     
     static let reuseId = "BannerCell"
     var bannerImage = UIImageView()
-    
     override init(frame:CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -25,19 +24,16 @@ class BannerCell: UICollectionViewCell {
     }
     
     func setupViews() {
-       
-        
         bannerImage = UIImageView(image: UIImage(named: "lobio"))
         bannerImage.contentMode = .scaleAspectFill
         bannerImage.clipsToBounds = true
         bannerImage.layer.cornerRadius = 25
     }
+    
     func setupConstraints(){
         addSubview(bannerImage)
-        
         bannerImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
     }
 }

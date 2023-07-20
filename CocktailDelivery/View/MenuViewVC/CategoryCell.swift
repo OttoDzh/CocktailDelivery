@@ -12,9 +12,7 @@ import SnapKit
 class CategoryCell: UICollectionViewCell {
     
     static let reuseId = "CategoryCell"
-    
     var categoryName = UILabel(text: "Cocktails", font: ODFonts.avenirRoman)
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -28,13 +26,14 @@ class CategoryCell: UICollectionViewCell {
     
     func setupViews() {
         categoryName.textColor = .lightGray
+        categoryName.textAlignment = .center
+        categoryName.adjustsFontSizeToFitWidth = true
     }
     func setupConstraints() {
         
         addSubview(categoryName)
-        
         categoryName.snp.makeConstraints { make in
-            make.width.equalTo(80)
+            make.width.equalTo(100)
             make.height.equalTo(20)
             make.center.equalToSuperview()
         }

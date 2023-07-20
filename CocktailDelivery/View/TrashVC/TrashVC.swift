@@ -13,7 +13,6 @@ class TrashVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.view = thrashView
     }
     

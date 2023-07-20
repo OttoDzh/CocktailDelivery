@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A415D10FEFABB6019F0BEFF1 /* Pods_CocktailDelivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BFD4C30B6CCAEF25EBEE28A /* Pods_CocktailDelivery.framework */; };
 		FB1A9E052A58AFA3005E7FA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1A9E042A58AFA3005E7FA5 /* AppDelegate.swift */; };
 		FB1A9E072A58AFA3005E7FA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1A9E062A58AFA3005E7FA5 /* SceneDelegate.swift */; };
 		FB1A9E092A58AFA3005E7FA5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1A9E082A58AFA3005E7FA5 /* MenuViewController.swift */; };
@@ -26,8 +27,6 @@
 		FB1A9E362A58B21B005E7FA5 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1A9E352A58B21B005E7FA5 /* BannerCell.swift */; };
 		FB1A9E382A58B237005E7FA5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1A9E372A58B237005E7FA5 /* CategoryCell.swift */; };
 		FB1A9E3A2A58B251005E7FA5 /* CocktailTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1A9E392A58B251005E7FA5 /* CocktailTabCell.swift */; };
-		FB1A9E3D2A58B2D4005E7FA5 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = FB1A9E3C2A58B2D4005E7FA5 /* SnapKit */; };
-		FB1A9E3F2A58B2D4005E7FA5 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = FB1A9E3E2A58B2D4005E7FA5 /* SnapKit-Dynamic */; };
 		FB3CF38D2A5AD2F10005F554 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3CF38C2A5AD2F10005F554 /* MainTabBar.swift */; };
 		FB3CF38F2A5AD47B0005F554 /* TrashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3CF38E2A5AD47B0005F554 /* TrashVC.swift */; };
 		FB3CF3922A5AD4A70005F554 /* TrashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3CF3912A5AD4A70005F554 /* TrashView.swift */; };
@@ -39,6 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0BFD4C30B6CCAEF25EBEE28A /* Pods_CocktailDelivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CocktailDelivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FBD34D0221D924611D2D063 /* Pods-CocktailDelivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailDelivery.debug.xcconfig"; path = "Target Support Files/Pods-CocktailDelivery/Pods-CocktailDelivery.debug.xcconfig"; sourceTree = "<group>"; };
+		A045B12680346EBC0603521E /* Pods-CocktailDelivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CocktailDelivery.release.xcconfig"; path = "Target Support Files/Pods-CocktailDelivery/Pods-CocktailDelivery.release.xcconfig"; sourceTree = "<group>"; };
 		FB1A9E012A58AFA3005E7FA5 /* CocktailDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CocktailDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1A9E042A58AFA3005E7FA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB1A9E062A58AFA3005E7FA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,19 +77,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB1A9E3D2A58B2D4005E7FA5 /* SnapKit in Frameworks */,
-				FB1A9E3F2A58B2D4005E7FA5 /* SnapKit-Dynamic in Frameworks */,
+				A415D10FEFABB6019F0BEFF1 /* Pods_CocktailDelivery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01ACE3D28D3F759169F08B11 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BFD4C30B6CCAEF25EBEE28A /* Pods_CocktailDelivery.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5A07797AB9EF0CBCB8BA90D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7FBD34D0221D924611D2D063 /* Pods-CocktailDelivery.debug.xcconfig */,
+				A045B12680346EBC0603521E /* Pods-CocktailDelivery.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FB1A9DF82A58AFA3005E7FA5 = {
 			isa = PBXGroup;
 			children = (
 				FB1A9E032A58AFA3005E7FA5 /* CocktailDelivery */,
 				FB1A9E022A58AFA3005E7FA5 /* Products */,
+				C5A07797AB9EF0CBCB8BA90D /* Pods */,
+				01ACE3D28D3F759169F08B11 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,9 +155,9 @@
 			isa = PBXGroup;
 			children = (
 				FB3CF38C2A5AD2F10005F554 /* MainTabBar.swift */,
-				FB3CF3972A5AD6410005F554 /* ProfileVC */,
-				FB3CF3902A5AD4800005F554 /* ThrasVC */,
 				FB3CF38B2A5AD2C50005F554 /* MenuViewVC */,
+				FB3CF3972A5AD6410005F554 /* ProfileVC */,
+				FB3CF3902A5AD4800005F554 /* TrashVC */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,13 +200,13 @@
 			path = MenuViewVC;
 			sourceTree = "<group>";
 		};
-		FB3CF3902A5AD4800005F554 /* ThrasVC */ = {
+		FB3CF3902A5AD4800005F554 /* TrashVC */ = {
 			isa = PBXGroup;
 			children = (
 				FB3CF38E2A5AD47B0005F554 /* TrashVC.swift */,
 				FB3CF3912A5AD4A70005F554 /* TrashView.swift */,
 			);
-			path = ThrasVC;
+			path = TrashVC;
 			sourceTree = "<group>";
 		};
 		FB3CF3972A5AD6410005F554 /* ProfileVC */ = {
@@ -205,19 +225,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB1A9E152A58AFA3005E7FA5 /* Build configuration list for PBXNativeTarget "CocktailDelivery" */;
 			buildPhases = (
+				6BB25EB4B17D5947FFFA6932 /* [CP] Check Pods Manifest.lock */,
 				FB1A9DFD2A58AFA3005E7FA5 /* Sources */,
 				FB1A9DFE2A58AFA3005E7FA5 /* Frameworks */,
 				FB1A9DFF2A58AFA3005E7FA5 /* Resources */,
+				2C03E9BC5298D335D388399E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = CocktailDelivery;
-			packageProductDependencies = (
-				FB1A9E3C2A58B2D4005E7FA5 /* SnapKit */,
-				FB1A9E3E2A58B2D4005E7FA5 /* SnapKit-Dynamic */,
-			);
 			productName = CocktailDelivery;
 			productReference = FB1A9E012A58AFA3005E7FA5 /* CocktailDelivery.app */;
 			productType = "com.apple.product-type.application";
@@ -246,9 +264,6 @@
 				Base,
 			);
 			mainGroup = FB1A9DF82A58AFA3005E7FA5;
-			packageReferences = (
-				FB1A9E3B2A58B2D4005E7FA5 /* XCRemoteSwiftPackageReference "SnapKit" */,
-			);
 			productRefGroup = FB1A9E022A58AFA3005E7FA5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,6 +284,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C03E9BC5298D335D388399E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CocktailDelivery/Pods-CocktailDelivery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CocktailDelivery/Pods-CocktailDelivery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CocktailDelivery/Pods-CocktailDelivery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BB25EB4B17D5947FFFA6932 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CocktailDelivery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FB1A9DFD2A58AFA3005E7FA5 /* Sources */ = {
@@ -354,7 +411,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -417,7 +474,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -438,6 +495,7 @@
 		};
 		FB1A9E162A58AFA3005E7FA5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7FBD34D0221D924611D2D063 /* Pods-CocktailDelivery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -449,8 +507,8 @@
 				INFOPLIST_FILE = CocktailDelivery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,6 +524,7 @@
 		};
 		FB1A9E172A58AFA3005E7FA5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A045B12680346EBC0603521E /* Pods-CocktailDelivery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -477,8 +536,8 @@
 				INFOPLIST_FILE = CocktailDelivery/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -514,30 +573,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		FB1A9E3B2A58B2D4005E7FA5 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.6.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FB1A9E3C2A58B2D4005E7FA5 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FB1A9E3B2A58B2D4005E7FA5 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		FB1A9E3E2A58B2D4005E7FA5 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FB1A9E3B2A58B2D4005E7FA5 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FB1A9DF92A58AFA3005E7FA5 /* Project object */;
 }
